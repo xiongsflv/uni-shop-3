@@ -1,39 +1,55 @@
-import App from './App'
-import store from './store'
 
 // #ifndef VUE3
 import Vue from 'vue'
-Vue.config.productionTip = false
-Vue.prototype.$store = store
-Vue.prototype.$adpid = "1111111111"
-Vue.prototype.$backgroundAudioData = {
-	playing: false,
-	playTime: 0,
-	formatedPlayTime: '00:00:00'
+import App from './App'
+// @代表根目录
+// import store from "@/store/store.js"
+
+// 导入网络请求的包
+import { $http } from '@escook/request-miniprogram'
+uni.$http=$http
+// 请求根路径
+$http.baseUrl='https://www.uinav.com'
+
+// 请求开始之前做一些事情
+$http.beforeRequest = function (options) {
+  // do somethimg...
+  uni.showLoading({
+    title:'数据加载中'
+  })
 }
+// 请求完成之后做一些事情
+$http.afterRequest = function () {
+  // do something...
+  uni.hideLoading()
+}
+
+uni.$showMsg=function(title='数据请求失败',duration=1500){
+  uni.showToast({
+    title,
+    duration,
+    icon:'none'
+  })
+}
+
+Vue.config.productionTip = false
+
 App.mpType = 'app'
+
 const app = new Vue({
-	store,
-	...App
+    ...App,
+    // store
 })
 app.$mount()
 // #endif
 
 // #ifdef VUE3
-import {
-	createSSRApp
-} from 'vue'
+import { createSSRApp } from 'vue'
+import App from './App.vue'
 export function createApp() {
-	const app = createSSRApp(App)
-	app.use(store)
-	app.config.globalProperties.$adpid = "1111111111"
-	app.config.globalProperties.$backgroundAudioData = {
-		playing: false,
-		playTime: 0,
-		formatedPlayTime: '00:00:00'
-	}
-	return {
-		app
-	}
+  const app = createSSRApp(App)
+  return {
+    app
+  }
 }
 // #endif
