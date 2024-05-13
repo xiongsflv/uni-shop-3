@@ -107,7 +107,6 @@
           url: '/subpkg/goods_list/goods_list?query=' + kw
         })
       }
-
     }
   }
 </script>

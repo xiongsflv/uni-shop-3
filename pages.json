@@ -31,35 +31,32 @@
   "subPackages": [{
     "root": "subpkg",
     "pages": [{
-      "path" : "goods_detail/goods_detail",
-      "style" : 
+        "path": "goods_detail/goods_detail",
+        "style": {
+          "navigationBarTitleText": "",
+          "enablePullDownRefresh": false
+        }
+      },
       {
-        "navigationBarTitleText" : "",
-        "enablePullDownRefresh" : false
-      }
-    },
-    {
-      "path" : "goods_list/goods_list",
-      "style" : 
+        "path": "goods_list/goods_list",
+        "style": {
+          "onReachBottomDistance": 150,
+          "enablePullDownRefresh": true
+        }
+      },
       {
-        "navigationBarTitleText" : "",
-        "enablePullDownRefresh" : false
+        "path": "search/search",
+        "style": {
+          "navigationBarTitleText": "",
+          "enablePullDownRefresh": false
+        }
       }
-    },
-    {
-      "path" : "search/search",
-      "style" : 
-      {
-        "navigationBarTitleText" : "",
-        "enablePullDownRefresh" : false
-      }
-    }
 
     ]
   }],
   "globalStyle": {
     "navigationBarTextStyle": "white",
-    "navigationBarTitleText": "哈哈哈哈",
+    "navigationBarTitleText": "哎呦不错哦",
     "navigationBarBackgroundColor": "#C00000",
     "backgroundColor": "#fff",
     "app-plus": {
