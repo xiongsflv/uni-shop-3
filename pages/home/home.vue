@@ -1,5 +1,8 @@
 <template>
   <view>
+    <view class="search-box">
+      <my-search :bgcolor="'pink'" :radius="15" @myClick='gotoSearch'></my-search>
+    </view>
     <!-- 轮播图区域 -->
        <swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" :circular="true">
            <!-- 循环渲染轮播图的 item 项 -->
@@ -26,11 +29,13 @@
         <view class="floor-img-box">
            <!-- 左侧大图片的盒子 -->
            <navigator class="left-img-box" :url="item.product_list[0].url">
-               <image :src="item.product_list[0].image_src" :style="{width: item.product_list[0].image_width + 'rpx'}" mode="widthFix"></image>
+               <image :src="item.product_list[0].image_src" :style="{width: item.product_list[0].image_width + 'rpx'}"
+              mode="widthFix"></image>
              </navigator>
            <!-- 右侧 4 个小图片的盒子 -->
            <view class="right-img-box">
-               <navigator class="right-img-item" v-for="(item2, i2) in item.product_list" :key="i2" v-if="i2 !== 0" :url="item2.url">
+               <navigator class="right-img-item" v-for="(item2, i2) in item.product_list" :key="i2" v-if="i2 !== 0"
+              :url="item2.url">
                    <image :src="item2.image_src" mode="widthFix" :style="{width: item2.image_width + 'rpx'}"></image>
                </navigator>
           </view>
@@ -100,18 +105,28 @@
         // 通过双层 forEach 循环，处理 URL 地址
         res.message.forEach(floor => {
           floor.product_list.forEach(prod => {
-            prod.url = '/subpkg/goods_list/goods_list?' +prod.navigator_url.split('?')[1]
+            prod.url = '/subpkg/goods_list/goods_list?' + prod.navigator_url.split('?')[1]
           })
         })
 
         this.floorList = res.message
       },
-
+      // 跳转搜索
+      gotoSearch(){
+        uni.navigateTo({
+          url:'/subpkg/search/search'
+        })
+      }
     }
   }
 </script>
 
 <style lang="scss">
+  .search-box{
+    position: sticky;
+    top: 0;
+    z-index: 999;
+  }
   swiper {
     height: 330rpx;
 
