@@ -2,29 +2,25 @@
   "pages": [{
       "path": "pages/home/home",
       "style": {
-        "navigationBarTitleText": "",
-        "enablePullDownRefresh": false
+        
       }
     },
     {
       "path": "pages/cate/cate",
       "style": {
-        "navigationBarTitleText": "",
-        "enablePullDownRefresh": false
+       
       }
     },
     {
       "path": "pages/cart/cart",
       "style": {
-        "navigationBarTitleText": "",
-        "enablePullDownRefresh": false
+        
       }
     },
     {
       "path": "pages/my/my",
       "style": {
-        "navigationBarTitleText": "",
-        "enablePullDownRefresh": false
+        
       }
     }
   ],
@@ -33,8 +29,7 @@
     "pages": [{
         "path": "goods_detail/goods_detail",
         "style": {
-          "navigationBarTitleText": "",
-          "enablePullDownRefresh": false
+         
         }
       },
       {
@@ -47,8 +42,7 @@
       {
         "path": "search/search",
         "style": {
-          "navigationBarTitleText": "",
-          "enablePullDownRefresh": false
+          
         }
       }
 
