@@ -3,7 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 // @代表根目录
-// import store from "@/store/store.js"
+import store from "@/store/store.js"
 
 // 导入网络请求的包
 import { $http } from '@escook/request-miniprogram'
@@ -38,7 +38,7 @@ App.mpType = 'app'
 
 const app = new Vue({
     ...App,
-    // store
+    store
 })
 app.$mount()
 // #endif

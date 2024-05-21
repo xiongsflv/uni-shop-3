@@ -67,7 +67,7 @@
       // 判断是否还有下一页数据
       if (this.queryObj.pagenum * this.queryObj.pagesize >= this.total)
         return uni.$showMsg('数据加载完毕！')
-      if (isloading) return
+      if (this.isloading) return
       // 让页码值自增 +1
       this.queryObj.pagenum += 1
       // 重新获取列表数据
