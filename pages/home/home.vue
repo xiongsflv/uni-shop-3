@@ -48,7 +48,7 @@
 <script>
   import badgeMix from '@/mixins/tabbar-badge.js'
   export default {
-    mixins:[badgeMix],
+    mixins: [badgeMix],
     data() {
       return {
         // 1. 轮播图的数据列表，默认为空数组
@@ -66,9 +66,25 @@
       this.getNavList()
       // 2. 在 onLoad 中调用获取楼层数据的方法
       this.getFloorList()
-
+      // this.test()
     },
     methods: {
+      // async test() {
+      //   var result = await uni.$http.post(
+      //     'https://sy.derom.com/iuap-yonbuilder-mobilenode/runtime-mobile/uniform/bill/list?terminalType=3&tenantId=q2itqbhf&s=1&busiObj=ac16559e&serviceCode=1769813524502544389&useCache=false&live=false&isQueryUnion=true', {
+      //       "page": {
+      //         "pageSize": 10,
+      //         "pageIndex": 1
+      //       },
+      //       "billnum": "ac16559eMobileList",
+      //       "condition": {
+      //         "filtersId": "1959654884347740452",
+      //         "commonVOs": []
+      //       },
+      //       "cAction": "search"
+      //     })
+      //   debugger
+      // },
       async getSwiperList() {
         const {
           data: res
@@ -114,9 +130,9 @@
         this.floorList = res.message
       },
       // 跳转搜索
-      gotoSearch(){
+      gotoSearch() {
         uni.navigateTo({
-          url:'/subpkg/search/search'
+          url: '/subpkg/search/search'
         })
       }
     }
@@ -124,11 +140,12 @@
 </script>
 
 <style lang="scss">
-  .search-box{
+  .search-box {
     position: sticky;
     top: 0;
     z-index: 999;
   }
+
   swiper {
     height: 330rpx;
 
